@@ -1,7 +1,6 @@
 package com.paultheindiedev.paultheindiedevwebsite.controllers;
 
 import com.paultheindiedev.paultheindiedevwebsite.models.CreateGameRequest;
-import com.paultheindiedev.paultheindiedevwebsite.models.CreateUserRequest;
 import com.paultheindiedev.paultheindiedevwebsite.models.UpdateGameRequest;
 import com.paultheindiedev.paultheindiedevwebsite.services.interfaces.GameService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -13,6 +13,17 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectRepository repository;
 
     @Override
+    public boolean createProjectGolder(String projectFolderId) {
+        ProjectsFolder projectsFolder = new ProjectsFolder();
+
+        projectsFolder.setUsername(projectFolderId);
+
+        repository.insert(projectsFolder);
+
+        return false;
+    }
+
+    @Override
     public boolean createProject(CreateProjectRequest createProjectRequest) {
         ProjectsFolder projects = repository.findById(createProjectRequest.getProjectId()).get();
 
@@ -39,5 +50,10 @@ public class ProjectServiceImpl implements ProjectService {
         repository.save(projects);
 
         return true;
+    }
+
+    @Override
+    public ProjectsFolder getFolder(String projectFolderId) {
+        return repository.findById(projectFolderId).get();
     }
 }

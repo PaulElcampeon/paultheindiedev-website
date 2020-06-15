@@ -16,6 +16,17 @@ public class GameServiceImpl implements GameService {
     private GameRepository repository;
 
     @Override
+    public boolean createGameFolder(String gameFolderId) {
+        GamesFolder gamesFolder = new GamesFolder();
+
+        gamesFolder.setUsername(gameFolderId);
+
+        repository.insert(gamesFolder);
+
+        return true;
+    }
+
+    @Override
     public boolean createGame(CreateGameRequest createGameRequest) {
         GamesFolder games =  repository.findById(createGameRequest.getGameId()).get();
 
@@ -23,7 +34,7 @@ public class GameServiceImpl implements GameService {
 
         repository.save(games);
 
-        return false;
+        return true;
     }
 
     @Override
@@ -43,5 +54,10 @@ public class GameServiceImpl implements GameService {
         repository.save(games);
 
         return true;
+    }
+
+    @Override
+    public GamesFolder getGame(String gameId) {
+        return repository.findById(gameId).get();
     }
 }
