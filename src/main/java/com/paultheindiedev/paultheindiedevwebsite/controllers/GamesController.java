@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("games")
+@RequestMapping("games-resource")
 public class GamesController {
 
     @Autowired
